@@ -79,19 +79,21 @@ html, body {
     outline-offset: 2px;
 }
 
-.revealable {
+.reveal-group,
+.reveal-stagger {
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
-.revealable.is-visible {
+.is-visible {
     opacity: 1;
     transform: translateY(0);
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .revealable {
+    .reveal-group,
+    .reveal-stagger {
         transition: none;
     }
 }
