@@ -1,28 +1,46 @@
 // script.js
 
 document.addEventListener('DOMContentLoaded', () => {
-    // --- PART 1: Handle the Group Reveals ---
-    // Select all containers that should appear at once.
-    const groupElements = document.querySelectorAll('.reveal-group');
+    const DELAY_INCREMENT = 150; // Delay between primary blocks
+    const CHILD_DELAY_INCREMENT = 100; // Delay between nested items (e.g., buttons)
+    const CHILD_GROUP_DELAY = 200; // Extra delay before a nested group starts
 
-    groupElements.forEach(element => {
-        // Add the 'is-visible' class immediately (or with a tiny delay).
-        // This makes all main sections appear together.
-        setTimeout(() => {
-            element.classList.add('is-visible');
-        }, 100); // A small 100ms delay can feel smoother than 0.
+    // 1. Get ALL elements that need to be revealed.
+    const allRevealItems = document.querySelectorAll('.reveal-item');
+
+    // 2. Intelligently find only the TOP-LEVEL items.
+    // An item is top-level if its parent is NOT also a reveal-item.
+    const primaryElements = Array.from(allRevealItems).filter(element => {
+        return !element.parentElement.closest('.reveal-item');
     });
 
+    let currentDelay = 0;
 
-    // --- PART 2: Handle the Staggered Button Reveals ---
-    // Select ONLY the elements meant to be staggered.
-    const staggerElements = document.querySelectorAll('.reveal-stagger');
-
-    staggerElements.forEach((element, index) => {
-        // Use the familiar index-based delay to create the domino effect.
-        // The delay is LONGER here to be noticeable.
+    // 3. Loop through only the top-level elements.
+    primaryElements.forEach(element => {
+        // --- Primary Stagger ---
         setTimeout(() => {
             element.classList.add('is-visible');
-        }, 300 + (index * 150)); // Start after 300ms, then stagger by 150ms.
+        }, currentDelay);
+
+        // --- Secondary Stagger ---
+        // Find children within this specific top-level element.
+        const childElements = element.querySelectorAll('.reveal-item');
+
+        if (childElements.length > 0) {
+            let childDelay = 0;
+            childElements.forEach(child => {
+                let finalChildDelay = currentDelay + CHILD_GROUP_DELAY + childDelay;
+                setTimeout(() => {
+                    child.classList.add('is-visible');
+                }, finalChildDelay);
+                childDelay += CHILD_DELAY_INCREMENT;
+            });
+            // Ensure next primary element waits for this group to finish.
+            currentDelay += childDelay + CHILD_GROUP_DELAY;
+        } else {
+            // No children, so just add the standard delay.
+            currentDelay += DELAY_INCREMENT;
+        }
     });
 });

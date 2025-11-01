@@ -79,21 +79,28 @@ html, body {
     outline-offset: 2px;
 }
 
-.reveal-group,
-.reveal-stagger {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+/*
+  The single starting state for any element that will be animated.
+  Hidden and moved down.
+*/
+.reveal-item {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
-.is-visible {
-    opacity: 1;
-    transform: translateY(0);
+/*
+  The single universal "visible" state.
+  Adding this class triggers the transition.
+*/
+.reveal-item.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
+/* --- ACCESSIBILITY IS UNCHANGED --- */
 @media (prefers-reduced-motion: reduce) {
-    .reveal-group,
-    .reveal-stagger {
-        transition: none;
-    }
+  .reveal-item {
+    transition: none;
+  }
 }
