@@ -2,7 +2,13 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+h2, h3, h4 {
+    font-weight: 700;
 }
 
 .page-wrapper {
@@ -25,4 +31,36 @@ html, body {
 
 .center {
     text-align: center;
+}
+
+.img {
+    width: 500px;
+    height: 500px;
+}
+
+.my-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    transition-duration: 0.4s;
+}
+
+.my-button:hover {
+    background-color: #0056b3;
+}
+
+.my-button:active {
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
+}
+
+.my-button:focus {
+    outline: 2px solid #000;
+    outline-offset: 2px;
 }
