@@ -1,0 +1,213 @@
+/*Global Styles*/
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    background-color: rgb(71, 15, 244);
+    background: linear-gradient(to bottom, blue, rgb(71, 15, 244)) no-repeat fixed;
+    color: white;
+    text-align: center;
+}
+
+.page-wrapper {   /*Used for responsive web design*/
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    background-color: transparent;
+
+    h1, h2, h3 {
+        font-weight: 700;
+        padding-bottom: 20px;
+    }
+
+    p{
+        font-weight: 300;
+    }
+}
+
+@media (max-width: 600px) {
+    .page-wrapper {
+        padding: 10px;
+    }
+    
+}
+/*Profile*/
+.my-img {
+    width: 275;
+    height: 183;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    padding-bottom: 20px;
+}
+/*Social links*/
+.social-links {
+  display: flex;
+    justify-content: center;
+    gap: 2rem; /* The space between icons */
+    margin-top: 2rem;
+}
+
+/* Target the icon directly */
+.social-links a i {
+    font-size: 2.5rem; /* THIS controls the size of the icon */
+    color: #fff; /* Set your desired icon color */
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* The hover effect */
+.social-links a:hover i {
+    color: #db324d; /* Change color on hover */
+    transform: scale(1.2); /* Make the icon slightly bigger on hover */
+}
+/*Buttons*/
+.my-button {
+    background-color: #db324d;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.reveal-item.is-visible.my-button:hover {  /*Previously this class was named .my-button:hover, but I had to add .reveal-item.is-visible. so that the button would enlarge on hover. The js won the conflict war and mitigated the transform*/
+    background-color: rgb(244, 172, 69);
+    transform: translateY(-5px); /*This makes the button move up when hovered over*/
+    box-shadow: 2px 2px 3px #000;
+}
+
+.my-button:active {
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
+}
+
+.my-button:focus {
+    outline: 2px solid #000;
+    outline-offset: 2px;
+}
+
+/*
+  The single starting state for any element that will be animated.
+  Hidden and moved down.
+*/
+
+/*Transformation/Loading feature*/
+.reveal-item {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+}
+
+/*
+  The single universal "visible" state.
+  Adding this class triggers the transition.
+*/
+.reveal-item.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- ACCESSIBILITY IS UNCHANGED --- */
+@media (prefers-reduced-motion: reduce) {
+  .reveal-item {
+    transition: none;
+  }
+}
+/*Projects*/
+.projects-section {
+  padding: 40px 0; /*add some vertical space*/
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem; /*rem keeps the size of the root html*/
+  margin-bottom: 40px;
+}
+
+.project-grid {
+  display: flex;
+  flex-wrap: wrap; /*allows content to wrap if needed*/
+  gap: 2rem; /*the spaces between cards*/
+  justify-content: center; /*center the cards in the container*/
+}
+
+article.project-card:hover {
+transform: translateY(-5px);
+box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.5);
+}
+
+.project-card {
+    /* --- Sizing and Layout --- */
+    flex-basis: 350px; /* Each card will TRY to be 350px wide */
+    flex-grow: 1; /* Allows cards to grow to fill empty space */
+    display: flex;
+    flex-direction: column; /* Stacks content vertically inside the card */
+
+    /* --- Visuals --- */
+    background-color: rgba(255, 255, 255, 0.05); /* Semi-transparent white */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    padding: 1.5rem;
+
+    /* --- The Shadow --- */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    
+    /* --- This is part of the animation system --- */
+    /* Make sure you already have these base classes from our previous work */
+}
+
+.project-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.project-card h4 {
+    font-size: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    color: #ccc; /* Slightly dimmer color */
+}
+
+.project-card p {
+    flex-grow: 1; /* This pushes the links to the bottom */
+    margin-bottom: 1rem;
+}
+
+.tech-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    justify-content: center;
+}
+
+.tech-list li {
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+}
+
+.project-links {
+    display: flex;
+    justify-content: space-around; /* Or 'flex-start' with a gap */ /*Adds the space between the buttons evenly*/
+    gap: 1rem;
+}
