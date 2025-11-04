@@ -1,0 +1,12 @@
+# Dependencies
+/node_modules
+
+# Custom files (like the one you mentioned)
+GEMIMI.md
+
+# Common build/temp files for various projects
+/dist
+/build
+*.log
+.DS_Store # Mac system files
+# Add any other specific files or folders here
