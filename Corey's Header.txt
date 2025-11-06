@@ -1,0 +1,50 @@
+#masthead {
+  position: fixed !important;
+  width: inherit;
+  height: inherit;
+  background: rgba(0, 0, 0, 0); /* transparent */
+  color: white;
+  align-items: center;
+  justify-content: inherit;
+  font-size: inherit;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+#masthead.shrink {
+  height: 100px !important;
+  font-size: 15px;
+  background: rgba(0, 103, 255, 0.75);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.30);
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  z-index: 1000;
+}
+.ast-theme-transparent-header .ast-builder-menu .main-header-menu .menu-item .sub-menu .menu-link, .ast-theme-transparent-header .main-header-menu .menu-item .sub-menu .menu-link {
+    background-color: #410808f2;
+}
+img.custom-logo.shrink {
+  padding-top: 0px !important;
+  height: 50px !important;
+  width: auto !important;
+}
+img.custom-logo {
+  padding-top: 0px !important;
+  height: auto;
+  width: auto;
+}
+#lidd_mc_inspector, #lidd_mc_popup {
+  display: none !important;
+
+JSS
+window.addEventListener("scroll", function() {
+  var header = document.getElementById("masthead");
+  var mylogo = document.getElementsByClassName("custom-logo")[0];
+  if (window.scrollY > 50) {
+    header.classList.add("shrink");
+    mylogo.classList.add("shrink");
+  } else {
+    header.classList.remove("shrink");
+    mylogo.classList.remove("shrink");
+  }
+});

@@ -25,18 +25,18 @@ html, body {
     padding: 20px;
     text-align: center;
     background-color: transparent;
-
-    h1, h2, h3 {
-        font-weight: 700;
-        padding-bottom: 20px;
-    }
-
-    p {
-        font-weight: 300;
-    }
 }
 
-@media (max-width: 600pc) {
+.page-wrapper h1, .page-wrapper h2, .page-wrapper h3 {
+    font-weight: 700;
+    padding: 0;
+}
+
+.page-wrapper p {
+    font-weight: 300;
+}
+
+@media (max-width: 600px) {
     .page-wrapper {
         padding: 10px;
     }
@@ -93,7 +93,7 @@ nav {
     font-size: 18px;
     list-style: none;
     text-decoration: none;
-    padding:o;
+    padding: 0;
     margin: 0;
     gap: 1rem;
     cursor: pointer;
@@ -121,4 +121,79 @@ header:hover .nav-links a:hover {
 
 header:hover .logo:hover {
     color: #f6511d;
+}
+
+/*Scroll Animation Styles*/
+@media (prefers-reduced-motion: reduce) {
+    /* Disable animations and transitions for users who prefer reduced motion */
+    *, *::before, *::after {
+        transition: none !important;
+        animation: none !important;
+    }
+}
+
+.hidden {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+.visible {
+    opacity: 1;
+    transform: translateY(0);
+    }
+
+    /*Main Styles*/
+    main {
+    position: relative;
+    z-index: 0;
+    padding: 4rem 2rem;
+    overflow: visible; /* allow the bg layer to extend to the viewport edges */
+}
+
+main::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;      /* span full viewport width */
+    height: 100%;      /* match main height */
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+                      url(https://images.pexels.com/photos/260447/pexels-photo-260447.jpeg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+    pointer-events: none;
+}
+
+    main h1, h2, h3 {
+        font-weight: 700;
+        font-size: 48px;
+    }
+
+    main p {
+        font-weight: 500;
+        font-size: 24px;
+    }
+
+section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;      /* space between a heading and its paragraph */
+    margin: 0 0 2.5rem; /* larger space between sections; tune as needed */
+    padding: 0;
+}
+
+section h1,
+section h2,
+section h3 {
+    margin: 0;         /* remove default heading margins */
+    line-height: 1.1;
+}
+
+section p {
+    margin: 0;         /* rely on gap for spacing; add bottom if you want more */
+    margin-bottom: 3rem; /* optional extra breathing inside the section */
 }
