@@ -15,31 +15,11 @@ html, body {
     text-align: center;
 }
 /*Responsive*/
-.page-wrapper {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+.container {
     width: 90%;
-    max-height: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    text-align: center;
-    background-color: transparent;
-}
-
-.page-wrapper h1, .page-wrapper h2, .page-wrapper h3 {
-    font-weight: 700;
-    padding: 0;
-}
-
-.page-wrapper p {
-    font-weight: 300;
-}
-
-@media (max-width: 600px) {
-    .page-wrapper {
-        padding: 10px;
-    }
+    max-width: 1200px; /* more relistic max width */
+    margin: 0 auto; /* center the container */
+    padding: 0 20px; /* add some horizontal padding */
 }
 
 /*Google Fonts*/
@@ -145,27 +125,57 @@ header:hover .logo:hover {
 
     /*Main Styles*/
     main {
-    position: relative;
-    z-index: 0;
-    padding: 4rem 2rem;
-    overflow: visible; /* allow the bg layer to extend to the viewport edges */
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
 }
 
-main::before {
-    content: "";
+.hero {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh;
+    color: #ffefd3;
+}
+
+.hero::before {
+    content: '';
     position: absolute;
     top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100vw;      /* span full viewport width */
-    height: 100%;      /* match main height */
+    left: 0;
+    width: 100%;
+    height: 100%;
     background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
                       url(https://images.pexels.com/photos/260447/pexels-photo-260447.jpeg);
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
-    z-index: -1;
+    background-attachment: fixed;
+    z-index: -2;
     pointer-events: none;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* dark overlay for text readability */
+    z-index: -1;
+}
+
+.hero-content {
+    text-align: center;
+    padding: 2rem;
+}
+
+.new-feature {
+    background-color: #333333;
+    padding: 2rem;
+    border-radius: 8px;
 }
 
     main h1, h2, h3 {
