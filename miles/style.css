@@ -280,3 +280,61 @@ header:hover .logo:hover {
     .testimonial-card:hover {
         transform: translateY(-8px); /* adjust value as desired */
     }
+
+/*Footer Styles*/
+footer {
+    background-color: #1a1a1a;
+    color: #a0a0a0;
+    padding-top: 4rem;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding-bottom: 4rem;
+}
+
+.footer-col h3, .footer-col h4 {
+    color: #ffffff;
+    font-family: Oswald, sans-serif;
+    margin-bottom: 1rem;
+    font-size: 24px;
+}
+
+.footer-col p {
+    margin-bottom: 1rem;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-col a {
+    color: #a0a0a0;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-col a:hover {
+    color: #f6511d;
+}
+
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem
+}
+
+.footer-bottom {
+    border-top: 1px solid #333333;
+    padding: 1.5rem 0;
+    text-align: center;
+    font-size: 0.9rem;
+}
