@@ -2,8 +2,8 @@
 html, body {
     height: 100%;
     margin: 0;
-    padding: 0;
     min-height: 100vh;
+    box-sizing: border-box;
     font-family: "Inter", sans-serif;
     font-optical-sizing: auto;
     font-weight: 300;
@@ -29,13 +29,17 @@ html, body {
   font-weight: 300;
   font-style: normal;
 }
-
 /*Header Styles*/
 header {
-    position: sticky;
+    position: fixed;
     top: 0;
-    z-index: 100;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1000;
     transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
 }
 
 /*Scrolled Header Styles*/
@@ -130,54 +134,6 @@ header:hover .logo:hover {
     gap: 40px;
 }
 
-.hero {
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 60vh;
-    color: #ffefd3;
-}
-
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
-                      url(https://images.pexels.com/photos/260447/pexels-photo-260447.jpeg);
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    z-index: -2;
-    pointer-events: none;
-}
-
-.hero::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.4); /* dark overlay for text readability */
-    z-index: -1;
-}
-
-.hero-content {
-    text-align: center;
-    padding: 2rem;
-}
-
-.new-feature {
-    background-color: #333333;
-    padding: 2rem;
-    border-radius: 8px;
-}
-
     main h1, h2, h3 {
         font-weight: 700;
         font-size: 48px;
@@ -188,22 +144,139 @@ header:hover .logo:hover {
         font-size: 24px;
     }
 
-section {
+.hero {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh;
+    color: #ffefd3;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.hero-content {
+    text-align: center;
+    padding: 2rem;
+
     display: flex;
     flex-direction: column;
-    gap: 0.35rem;      /* space between a heading and its paragraph */
-    margin: 0 0 2.5rem; /* larger space between sections; tune as needed */
-    padding: 0;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 }
 
-section h1,
-section h2,
-section h3 {
-    margin: 0;         /* remove default heading margins */
-    line-height: 1.1;
+.features {
+    position: relative;
+    overflow: hidden;
+    padding: 4rem 2rem; /*add padding to give content space*/
+    color: #ffefd3;
+    z-index: 0;
 }
 
-section p {
-    margin: 0;         /* rely on gap for spacing; add bottom if you want more */
-    margin-bottom: 3rem; /* optional extra breathing inside the section */
+.features .container h2:first-of-type {
+    margin-top: 0;
 }
+
+.features::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+    url(https://images.pexels.com/photos/260447/pexels-photo-260447.jpeg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    z-index:  -2;
+    pointer-events: none;
+}
+
+.features::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Dark overlay for better text visibility */
+    z-index: -1;
+    pointer-events: none;
+}
+
+.new-feature {
+    background-color: #333333;
+    padding: 2rem;
+    border-radius: 8px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-weight: 700;
+    border-radius: 5px;
+    border: 2px solid transparent;
+    color: #ffefd3;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; /* Smooth transitions */
+}
+
+.btn-primary {
+    background-color: #f6511d;
+}
+
+.btn-primary:hover {
+    background-color: #ffefd3;
+    color: #272727;
+}
+
+/*testimonial Section Styles*/
+.testimonials {
+    background-color: #272727;
+    padding: 4rem 0;
+}
+
+.testimonials h2 {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+    gap: 2rem;
+}
+
+.testimonial-card {
+    background-color: #333333;
+    padding: 2rem;
+    border-radius: 8px;
+    border-left: 5px solid #f6511d;
+    transition: transform 0.3s ease; /* put transition here */
+    will-change: transform;
+}
+
+.testimonial-card p {
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+.testimonial-card h4 {
+    text-align: right;
+    font-weight: 700;
+    color: #f6511d;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    }
+
+    .testimonial-card:hover {
+        transform: translateY(-8px); /* adjust value as desired */
+    }
