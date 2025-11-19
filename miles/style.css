@@ -60,6 +60,12 @@ header:hover .logo {
 header:hover .nav-links a {
     color: #272727;
 }
+
+header:hover .nav-links a.active-link {
+    color: #f6511d;
+    border-bottom: 2px solid #f6511d;
+}
+
 /*Header nav container styles*/
 nav {
     width: 90%;
@@ -89,6 +95,13 @@ nav {
     color: #ffefd3;
     font-weight: 500;
     transition: color 0.3s ease-in-out;
+}
+
+.nav-links a.active-link {
+    color: #f6511d;
+    font-weight: 700;
+    border-bottom: 2px solid #f6511d;
+    padding-bottom: 5px;
 }
 
 header:hover .nav-links a:hover {
@@ -152,6 +165,7 @@ header:hover .logo:hover {
     align-items: center;
     min-height: 60vh;
     color: #ffefd3;
+    background-color: #1a1a1a;
 }
 
 .hero h1 {
@@ -210,8 +224,50 @@ header:hover .logo:hover {
     pointer-events: none;
 }
 
+.services {
+    background-color: #272727;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.services-card {
+    background-color: #333;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    padding-bottom: 1.5rem;
+    transition: transform 0.3s ease; /* put transition here */
+    will-change: transform;
+}
+
+.services-card:hover {
+    transform: translateY(-5px);
+
+}
+
+.services-card img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+}
+
+.services-card h3 {
+    font-size: 1.5rem;
+    margin: 1rem 0 0.5rem;
+}
+
+.services-card p {
+    font-size: 1rem;
+    color: #a0a0a0;
+}
+
 .new-feature {
-    background-color: #333333;
+    background-color: #1a1a1a;
     padding: 2rem;
     border-radius: 8px;
 }
@@ -239,7 +295,6 @@ header:hover .logo:hover {
 /*testimonial Section Styles*/
 .testimonials {
     background-color: #272727;
-    padding: 4rem 0;
 }
 
 .testimonials h2 {
@@ -341,22 +396,6 @@ footer {
 
 /* === ABOUT PAGE STYLES === */
 
-.about-hero {
-    padding-top: 120px; /* Add padding to push content below the fixed header */
-    padding-bottom: 60px;
-    background-color: #1a1a1a;
-    text-align: center;
-}
-
-.about-hero h1 {
-    font-size: 3.5rem;
-    margin-bottom: 0.5rem;
-}
-
-.mission, .team, .cta {
-    padding: 4rem 0;
-}
-
 .two-col-layout {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -374,7 +413,7 @@ footer {
 }
 
 .team {
-    background-color: #1a1a1a;
+    background-color: #272727;
 }
 
 .team-grid {
@@ -416,7 +455,7 @@ footer {
 }
 
 .cta {
-    background-color: #00070F;
+    background-color: #1a1a1a;
     text-align: center;
 }
 
@@ -434,4 +473,17 @@ footer {
     .two-col-layout {
         grid-template-columns: 1fr;
     }
+}
+
+.section-padding {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+.story, .container, h2:first-of-type {
+    margin-top: 0;
+}
+
+.story p {
+    margin-bottom: 2rem;
 }
