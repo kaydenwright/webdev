@@ -3,16 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Rusties</title>
+     <meta name="description" content="Learn about the mission and team behind
+             Rusties Gym. Discover our commitment to forging strength and building a community of
+             dedicated athletes in Ballito.">
+    <title>About Us | The Rusties Gym Story & Team</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.png" type="image/png">
 </head>
 <body>
     <header>
-        <nav>
+        <nav class="container">
             <a href="index.html" class="logo">RUSTIES</a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
@@ -31,39 +35,47 @@
         </section>
 
         <section class="story section-padding">
-            <div class="container">
-                <h2 class="hidden">Our Story</h2>
-                <p class="hidden">Founded in 2010 by Ronny De Beer, a former competitive powerlifter, Rusties was born with a big vision: to create a space where individuals of all fitness levels could come together to pursue their health and wellness goals. Over the years, we've grown into Ballito's premier fitness destination, known for our state-of-the-art facilities, expert trainers, and supportive community.</p>
-                <p class="hidden">At Rusties, we believe that fitness is more than just physical exercise; it's a lifestyle. Our mission is to empower our members to lead healthier, happier lives through comprehensive training programs, nutritional guidance, and a welcoming environment that fosters motivation and camaraderie.</p>
-                <p class="hidden">Join us on this journey to unlock your full potential and become the best version of yourself. Together, we are stronger.</p>
+            <div class="container hidden">
+                    <h2>Our Story</h2>
+                    <div class="story-grid">
+                        <div class="story-card">
+                        <p>Founded in 2010 by Ronny De Beer, a former competitive powerlifter, Rusties was born with a big vision: to create a space where individuals of all fitness levels could come together to pursue their health and wellness goals. Over the years, we've grown into Ballito's premier fitness destination, known for our state-of-the-art facilities, expert trainers, and supportive community.</p>
+                        </div>
+                        <div class="story-card">
+                        <p>At Rusties, we believe that fitness is more than just physical exercise; it's a lifestyle. Our mission is to empower our members to lead healthier, happier lives through comprehensive training programs, nutritional guidance, and a welcoming environment that fosters motivation and camaraderie.</p>
+                        </div>
+                        <div class="story-card">
+                        <p>Join us on this journey to unlock your full potential and become the best version of yourself. Together, we are stronger.</p>
+                        </div>
+                    </div>
             </div>
         </section>
 
-        <section class="mission hidden section-padding">
-            <div class="container two-col-layout">
+        <section class="mission section-padding">
+            <div class="container two-col-layout hidden">
                 <div class="col-text">
                     <h2>Our Mission</h2>
                     <p>Our mission is to provide a world-class training environment that empowers individuals to achieve their peak physical and mental potential. We believe in fostering a community built on hard work, dedication, and mutual respect. At Rusties, you're not just joining a gym; you're joining a family committed to greatness.</p>
                 </div>
                 <div class="col-img">
-                    <img src="https://images.pexels.com/photos/1954524/pexels-photo-1954524.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Gym interior with various equipment">
+                    <img src="images/gym-mission.jpg" alt="Gym interior with various equipment">
                 </div>
             </div>
         </section>
 
         <section class="testimonials section-padding">
-            <div class="container">
+            <div class="container hidden">
                 <h2>Our Values</h2>
                 <div class="testimonial-grid">
-                    <div class="testimonial-card hidden">
+                    <div class="testimonial-card">
                         <h3>Community</h3>
                         <p>We do not see our customers as individuals, rather a family. We all help, win and strive as a family.</p>
                     </div>
-                    <div class="testimonial-card hidden">
+                    <div class="testimonial-card">
                         <h3>Dicipline</h3>
                         <p>We don't mess around. We only succeed. At Rusties exercise is not a habit, it's a lifestyle.</p>
                     </div>
-                    <div class="testimonial-card hidden">
+                    <div class="testimonial-card">
                         <h3>Results</h3>
                         <p>We strive for excellence in everything we do, from our training programs to our customer service. Results is not a matter of if, it's a matter of when.</p>
                     </div>
@@ -71,20 +83,20 @@
         </section>
 
         <section class="team section-padding">
-            <div class="container">
+            <div class="container hidden">
                 <h2>Meet The Team</h2>
                 <div class="team-grid">
-                    <div class="team-card hidden">
+                    <div class="team-card">
                         <img src="images/body-builder.jpg" alt="Headshot of Jane Doe">
                         <h3>Jane Doe</h3>
                         <p>Head Trainer & Founder</p>
                     </div>
-                    <div class="team-card hidden">
+                    <div class="team-card">
                         <img src="images/personal-trainer.jpg" alt="Headshot of John Smith">
                         <h3>John Smith</h3>
                         <p>Strength & Conditioning Coach</p>
                     </div>
-                    <div class="team-card hidden">
+                    <div class="team-card">
                         <img src="images/yoga.jpg" alt="Headshot of Emily White">
                         <h3>Emily White</h3>
                         <p>Yoga & Flexibility Instructor</p>
@@ -94,7 +106,7 @@
         </section>
 
         <section class="cta hidden section-padding">
-            <div class="container">
+            <div class="container hidden">
                 <h2>Ready to Join?</h2>
                 <p>Become a part of the Rusties family today and start your transformation.</p>
                 <a href="contact.html" class="btn btn-primary">Become a Member</a>
