@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Browse our collection of magical potions, spells, and enchanted artifacts.">
+    <title>Magic Matters | Products</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="Images/favicon.jpg" type="image/jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">Magic Matters</a>
+            <button class="nav-toggle" aria-label="toggle navigation">
+                <span class="hamburger"></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#"class="active">Products</a></li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="container">
+            <h1>Our Wares</h1>
+            <p>Browse our collection, or filter by category to find exactly what you need for your next adventure.</p>
+            
+            <div id="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="potion">Potions</button>
+                <button class="filter-btn" data-filter="spell">Spells</button>
+                <button class="filter-btn" data-filter="artifact">Artifacts</button>
+            </div>
+
+            <div id="product-grid" class="products-container">
+                <!-- Products will be dynamically inserted here by products.js -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Magic Matters. All rights reserved.</p>
+    </footer>
+
+    <script src="main.js" defer></script>
+    <script src="script.js" defer></script>
+    <script src="products.js"></script>
+</body>
+</html>
