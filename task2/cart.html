@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Browse our collection of magical potions, spells, and enchanted artifacts.">
-    <title>Magic Matters | Products</title>
+    <meta name="description" content="Your shopping cart at Magic Matters.">
+    <title>Magic Matters | Shopping Cart</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="Images/favicon.jpg" type="image/jpg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,14 +14,14 @@
 <body>
     <header>
         <nav class="container">
-            <a href="#" class="logo">Magic Matters</a>
+            <a href="index.html" class="logo">Magic Matters</a>
             <button class="nav-toggle" aria-label="toggle navigation">
                 <span class="hamburger"></span>
             </button>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="#"class="active">Products</a></li>
-                <li><a href="cart.html">Cart <span id="cart-counter">0</span></a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="cart.html" class="active">Cart <span id="cart-counter">0</span></a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
@@ -29,28 +29,24 @@
 
     <main>
         <section class="container">
-            <h1>Our Wares</h1>
-            <p>Browse our collection, or filter by category to find exactly what you need for your next adventure.</p>
-            
-            <div id="filter-buttons">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="potion">Potions</button>
-                <button class="filter-btn" data-filter="spell">Spells</button>
-                <button class="filter-btn" data-filter="artifact">Artifacts</button>
+            <h1>Your Shopping Cart</h1>
+            <div id="cart-container">
+                <!-- Cart items will be dynamically inserted here -->
+                <p>Your cart is currently empty.</p>
             </div>
-
-            <div id="product-grid" class="products-container">
-                <!-- Products will be dynamically inserted here by products.js -->
+            <div id="cart-summary" style="display: none;">
+                <h3 class="cart-total">Total: 0 Gold</h3>
+                <button class="button">Proceed to Checkout</button>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2024 Magic Matters. All rights reserved.</p>
+        <p>&copy; 2025 Magic Matters. All rights reserved.</p>
     </footer>
 
     <script src="main.js" defer></script>
     <script src="script.js" defer></script>
-    <script src="products.js"></script>
+    <script src="cart.js" defer></script>
 </body>
 </html>

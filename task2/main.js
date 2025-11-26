@@ -9,8 +9,23 @@ function setMainPadding() {
     }
 }
 
-// Set padding on initial load, ensuring all content (like images) has loaded
-window.addEventListener('load', setMainPadding);
+function updateCartCounter() {
+    const cartCounter = document.getElementById('cart-counter');
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    if (cartCounter) {
+        const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+        cartCounter.textContent = totalItems;
+        // Optional: show/hide counter if empty
+        cartCounter.style.display = totalItems > 0 ? 'inline-block' : 'none';
+    }
+}
+
+// Set padding and update counter on initial load
+window.addEventListener('load', () => {
+    setMainPadding();
+    updateCartCounter();
+});
 
 // Recalculate padding on window resize
 window.addEventListener('resize', setMainPadding);

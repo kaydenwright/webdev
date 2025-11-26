@@ -5,7 +5,7 @@ const products = [
         category: 'potion',
         description: 'A bubbling red liquid that restores 50 health points.',
         price: 10,
-        image: 'https://via.placeholder.com/280x200/ff0000/ffffff?text=Health+Potion'
+        image: 'images/health.jpg'
     },
     {
         id: 2,
@@ -13,7 +13,7 @@ const products = [
         category: 'potion',
         description: 'A swirling blue elixir to replenish 100 mana points.',
         price: 15,
-        image: 'https://via.placeholder.com/280x200/0000ff/ffffff?text=Mana+Potion'
+        image: 'images/mana.jpg'
     },
     {
         id: 3,
@@ -21,7 +21,7 @@ const products = [
         category: 'potion',
         description: 'Temporarily doubles your physical strength.',
         price: 25,
-        image: 'https://via.placeholder.com/280x200/800080/ffffff?text=Strength+Elixir'
+        image: 'images/strength.jpg'
     },
     {
         id: 4,
@@ -29,7 +29,7 @@ const products = [
         category: 'spell',
         description: 'A single-use scroll that unleashes a powerful fireball.',
         price: 50,
-        image: 'https://via.placeholder.com/280x200/ff4500/ffffff?text=Fireball'
+        image: 'images/fire.jpg'
     },
     {
         id: 5,
@@ -37,7 +37,7 @@ const products = [
         category: 'spell',
         description: 'Contains the ritual to teleport to a known location.',
         price: 200,
-        image: 'https://via.placeholder.com/280x200/4b0082/ffffff?text=Teleport'
+        image: 'images/teleport.jpg'
     },
     {
         id: 6,
@@ -45,7 +45,7 @@ const products = [
         category: 'artifact',
         description: 'A razor-sharp blade forged from a dragon\'s tooth.',
         price: 150,
-        image: 'https://via.placeholder.com/280x200/a9a9a9/000000?text=Dagger'
+        image: 'images/dagger.jpg'
     },
     {
         id: 7,
@@ -53,7 +53,7 @@ const products = [
         category: 'artifact',
         description: 'Grants the wearer near-invisibility in forests.',
         price: 175,
-        image: 'https://via.placeholder.com/280x200/228b22/ffffff?text=Elven+Cloak'
+        image: 'images/cloak.jpg'
     },
     {
         id: 8,
@@ -61,7 +61,7 @@ const products = [
         category: 'artifact',
         description: 'A small satchel that can hold far more than its size would suggest.',
         price: 250,
-        image: 'https://via.placeholder.com/280x200/8b4513/ffffff?text=Bag+of+Holding'
+        image: 'images/bag.jpg'
     }
 ];
 
@@ -84,6 +84,12 @@ function displayProducts(productsToDisplay) {
 
     // Loop through the products and create a card for each
     productsToDisplay.forEach(product => {
+        // Create a link that wraps the card
+        const productLink = document.createElement('a');
+        productLink.href = `product.html?id=${product.id}`;
+        productLink.className = 'product-card-link';
+
+        // Create the card itself
         const productCard = document.createElement('div');
         productCard.className = 'product-card';
         
@@ -92,17 +98,33 @@ function displayProducts(productsToDisplay) {
             <img src="${product.image}" alt="${product.name}">
             <p>${product.description}</p>
             <p class="price">${product.price} Gold</p>
-            <button class="button">Add to Cart</button>
         `;
         
-        productGrid.appendChild(productCard);
+        // Append the card to the link, and the link to the grid
+        productLink.appendChild(productCard);
+        productGrid.appendChild(productLink);
     });
 }
 
 // --- Initial Page Load ---
-// Display all products when the page first loads.
+// Check for a category filter in the URL hash
 window.addEventListener('DOMContentLoaded', () => {
-    displayProducts(products);
+    const hash = window.location.hash.substring(1); // Get hash and remove '#'
+    const validCategories = ['potion', 'spell', 'artifact'];
+
+    if (hash && validCategories.includes(hash)) {
+        // If there's a valid category hash, simulate a click on that filter button
+        const filterButton = document.querySelector(`.filter-btn[data-filter="${hash}"]`);
+        if (filterButton) {
+            filterButton.click();
+        } else {
+            // Fallback to displaying all if hash is invalid somehow
+            displayProducts(products);
+        }
+    } else {
+        // Otherwise, display all products by default
+        displayProducts(products);
+    }
 });
 
 // --- Filtering Logic ---

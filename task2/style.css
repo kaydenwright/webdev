@@ -11,11 +11,15 @@ body {
     background-color: #E0B0FF;
     color: #4B3D8D;
     margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure body takes up full viewport height */
 }
 
 main {
     padding: 20px; /* Symmetrical padding, top is now handled by JS */
     text-align: center;
+    flex-grow: 1; /* Allow main to grow and push footer down */
 }
 
 /*container styles*/
@@ -214,6 +218,99 @@ margin: auto;
   width: 100%;
 }
 
+/* Styling for the Back to Products button on product detail page */
+.back-button-container {
+    width: 100%; /* Take full width */
+    text-align: left; /* Align button to the left */
+    margin-bottom: 2rem; /* Space below button */
+}
+
+.back-button {
+    /* Inherits button styles, just some minor tweaks */
+    padding: 8px 15px;
+    font-size: 0.9em;
+}
+
+/* Mobile adjustments for back button */
+@media (max-width: 768px) {
+    .back-button-container {
+        text-align: center; /* Center on mobile */
+    }
+}
+
+/* Product Detail Page Styling */
+#product-detail-container {
+    display: flex;
+    flex-direction: column; /* Default to column for mobile */
+    align-items: center; /* Center items in column view */
+    gap: 40px; /* Space between image and info */
+    padding: 40px 20px;
+}
+
+.product-image img {
+    max-width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.product-info {
+    text-align: center; /* Center text for mobile */
+}
+
+.product-info .button {
+    margin-top: 20px;
+}
+
+/* Desktop specific styles for Product Detail Page */
+@media (min-width: 769px) { /* Apply these styles for screens larger than mobile */
+    .back-button-container {
+        position: absolute; /* Position relative to #product-detail-container */
+        top: 0;
+        left: 0;
+        width: auto; /* Width adapts to content */
+        margin-bottom: 0; /* No margin if absolutely positioned */
+    }
+    .back-button {
+        background-color: transparent; /* Remove button background */
+        border: none; /* Remove button border */
+        color: #6b5ca5; /* A subtle purple from your palette, like a link */
+        padding: 0; /* Remove button padding */
+        text-transform: none; /* Keep original casing */
+        font-weight: normal; /* Less bold */
+        text-decoration: underline; /* Add underline for link feel */
+    }
+    .back-button:hover {
+        color: #42253b; /* Darker on hover */
+        background-color: transparent; /* Ensure no background on hover */
+    }
+
+    #product-detail-container {
+        flex-direction: row; /* Arrange side-by-side on desktop */
+        align-items: flex-start; /* Align to top */
+        justify-content: center; /* Center the whole block */
+        max-width: 1200px; /* Max width for the container on desktop */
+        margin: auto; /* Center the container itself */
+        position: relative; /* Needs to be relative for absolute back button */
+    }
+
+    .product-image {
+        flex: 0 0 400px; /* Fixed width for the image container */
+        max-width: 40%; /* Prevent it from getting too big */
+    }
+
+    .product-image img {
+        width: 100%; /* Make image fill its container */
+        height: auto;
+    }
+
+    .product-info {
+        flex: 1; /* Allow info section to take remaining space */
+        text-align: left; /* Align text left on desktop */
+        padding-left: 40px; /* Space between image and text */
+    }
+}
+
 /* Add space between content sections */
 main > section {
   margin-bottom: 4rem;
@@ -225,6 +322,107 @@ main > section {
   opacity: 0;
   transform: translateY(20px);
 }
+
+/* --- Shopping Cart Page Styling --- */
+#cart-container {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #eee;
+    padding: 15px 0;
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+}
+
+.cart-item-image {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 20px;
+}
+
+.cart-item-details {
+    flex-grow: 1;
+}
+
+.cart-item-quantity {
+    display: flex;
+    align-items: center;
+}
+
+.quantity-btn {
+    background: #f4f4f4;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.quantity-text {
+    margin: 0 10px;
+}
+
+.cart-item-details h3 {
+    margin: 0 0 5px 0;
+}
+
+.cart-item-quantity, .cart-item-total {
+    min-width: 100px;
+    text-align: right;
+}
+
+.remove-btn {
+    background: transparent;
+    border: 1px solid #ff4d4d;
+    color: #ff4d4d;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 0.8em;
+    margin-top: 5px;
+    transition: all 0.2s ease;
+}
+
+.remove-btn:hover {
+    background: #ff4d4d;
+    color: white;
+}
+
+#cart-summary {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 2px solid #4B3D8D;
+    text-align: right;
+}
+
+#cart-summary .button {
+    margin-top: 1rem;
+}
+
+@media(max-width: 600px) {
+    .cart-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    .cart-item-quantity, .cart-item-total {
+        text-align: left;
+    }
+}
+
 
 /*footer styles*/
 footer {
@@ -238,6 +436,18 @@ footer {
 
 .nav-toggle {
     display: none; /* Hidden on desktop */
+}
+
+/* Cart Counter Badge */
+#cart-counter {
+    background-color: #00ccff; /* A bright color from your palette */
+    color: #42253b; /* Dark text for contrast */
+    padding: 2px 8px;
+    border-radius: 10px; /* Pill shape */
+    font-size: 0.8em;
+    font-weight: bold;
+    margin-left: 5px;
+    vertical-align: top; /* Align with the top of the text */
 }
 
 /*Google Fonts Import*/

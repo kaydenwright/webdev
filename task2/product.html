@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Browse our collection of magical potions, spells, and enchanted artifacts.">
-    <title>Magic Matters | Products</title>
+    <meta name="description" content="Product details for our magical wares.">
+    <title>Magic Matters | Product</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="Images/favicon.jpg" type="image/jpg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,13 +14,13 @@
 <body>
     <header>
         <nav class="container">
-            <a href="#" class="logo">Magic Matters</a>
+            <a href="index.html" class="logo">Magic Matters</a>
             <button class="nav-toggle" aria-label="toggle navigation">
                 <span class="hamburger"></span>
             </button>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="#"class="active">Products</a></li>
+                <li><a href="products.html" class="active">Products</a></li>
                 <li><a href="cart.html">Cart <span id="cart-counter">0</span></a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
@@ -28,29 +28,26 @@
     </header>
 
     <main>
-        <section class="container">
-            <h1>Our Wares</h1>
-            <p>Browse our collection, or filter by category to find exactly what you need for your next adventure.</p>
-            
-            <div id="filter-buttons">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="potion">Potions</button>
-                <button class="filter-btn" data-filter="spell">Spells</button>
-                <button class="filter-btn" data-filter="artifact">Artifacts</button>
+        <section id="product-detail-container" class="container">
+            <!-- Product details will be dynamically inserted here -->
+            <div class="product-image">
+                <img src="https://via.placeholder.com/400x400?text=Loading..." alt="Loading product...">
             </div>
-
-            <div id="product-grid" class="products-container">
-                <!-- Products will be dynamically inserted here by products.js -->
+            <div class="product-info">
+                <h1 class="product-name">Loading...</h1>
+                <p class="product-price">...</p>
+                <p class="product-description">Please wait while we fetch the details of this magical item.</p>
+                <button class="button">Add to Cart</button>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2024 Magic Matters. All rights reserved.</p>
+        <p>&copy; 2025 Magic Matters. All rights reserved.</p>
     </footer>
 
     <script src="main.js" defer></script>
     <script src="script.js" defer></script>
-    <script src="products.js"></script>
+    <script src="product-detail.js" defer></script>
 </body>
 </html>
